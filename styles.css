@@ -4,80 +4,84 @@
 }
 
 body {
-    background-color: blue;
-    color: white;
+    background-color: lightgray;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #container {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas: 
     "Header Header"
-    "Left Right"
+    "Nav Main"
     "Footer Footer";
 }
 
 header {
-    background-color: lightgreen;
     grid-area: Header;
     padding: 20px;
+    background-color: #4caf50;
+    color: white;
 }
 
 main {
-    grid-area: Right;
+    grid-area: Main;
     padding: 20px;
 }
 
 nav {
-    grid-area: Left;
+    background-color: white;
+    grid-area: Nav;
     padding: 20px 0px 20px 0px;
 }
 
-ul {
-    list-style: none;
-}
-
-a {
-    color: white;
+small {
+    background-color: pink;
+    padding: 1rem;
 }
 
 footer {
-    background-color: lightgreen;
     grid-area: Footer;
     padding: 20px;
+    background-color: #4caf50;
+    color: white;
 }
 
 /* SCREENS */
 
-/* 401 - 800px */
+/* dunno yet */
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:600px) {
     body {
-        background-color: red;
-    }
-}
-
-/* 0 - 400px */
-
-@media screen and (max-width:400px) {
-    body {
-        background-color: yellow;
-        color: black;
+        text-align: center;
     }
     #container {
-        display: flex;
-        flex-direction: column;
-
+        grid-template-areas: 
+        "Header"
+        "Nav"
+        "Main"
+        "Footer";
+        grid-template-columns: 1fr;
     }
-    a {
-        color: black;
+    h1, h2, h3 {
+        font-size: x-large;
+    }
+    h2 {
+        font-size: large;
+    }
+    h3 {
+        font-size: medium;
+    }
+    small {
+        display: none; /* JOHNN CEENNAAAA */
     }
 }
 
 /* PRINT */
 
-@media print {
+@media print and (monochrome) {
+
     body {
         font-family:'Times New Roman', Times, serif;
         color: black;
@@ -89,4 +93,3 @@ footer {
         display: none;
     }
 }
-@media print and (monochrome);
